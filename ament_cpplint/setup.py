@@ -23,7 +23,6 @@ setup(
     keywords=['ROS'],
     classifiers=[
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python',
         'Topic :: Software Development',
     ],
@@ -32,7 +31,11 @@ setup(
 The ability to check code against the Google style conventions using
 cpplint and generate xUnit test result files.""",
     license='Apache License, Version 2.0, BSD',
-    tests_require=['pytest'],
+    extras_require={
+        'test': [
+            'pytest',
+        ],
+    },
     entry_points={
         'console_scripts': [
             'ament_cpplint = ament_cpplint.main:main',

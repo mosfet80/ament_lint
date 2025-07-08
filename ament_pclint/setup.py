@@ -53,7 +53,11 @@ setup(
 The ability to perform static code analysis on C/C++ code using PC-lint
 and generate xUnit test result files.""",
     license='Apache License, Version 2.0',
-    tests_require=['pytest'],
+    extras_require={
+        'test': [
+            'pytest',
+        ],
+    },
     test_suite='test',
     entry_points={
         'console_scripts': [
