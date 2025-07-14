@@ -26,7 +26,6 @@ setup(
     keywords=['ROS'],
     classifiers=[
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python',
         'Topic :: Software Development',
     ],
@@ -34,7 +33,11 @@ setup(
     long_description="""\
 The ability to check sources file for copyright and license information.""",
     license='Apache License, Version 2.0',
-    tests_require=['pytest'],
+    extras_require={
+        'test': [
+            'pytest',
+        ],
+    },
     entry_points={
         'ament_copyright.copyright_name': [
             'osrf = ament_copyright.copyright_names:osrf',
