@@ -57,7 +57,6 @@ and generate xUnit test result files.""",
             'pytest',
         ],
     },
-    test_suite='test',
     entry_points={
         'console_scripts': [
             'ament_pclint = ament_pclint.main:main',
