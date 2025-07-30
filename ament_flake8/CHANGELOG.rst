@@ -2,6 +2,11 @@
 Changelog for package ament_flake8
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* fix setuptools deprecations (`#547 <https://github.com/ament/ament_lint/issues/547>`_)
+* Contributors: mosfet80
+
 0.20.1 (2025-06-19)
 -------------------
 
