@@ -2,6 +2,9 @@
 Changelog for package ament_uncrustify
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.20.5 (2026-04-23)
 -------------------
 
