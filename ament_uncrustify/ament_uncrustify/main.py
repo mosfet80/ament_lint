@@ -27,11 +27,12 @@ import subprocess
 import sys
 import tempfile
 import time
+from typing import Literal
 from xml.sax.saxutils import escape
 from xml.sax.saxutils import quoteattr
 
 
-def main(argv=sys.argv[1:]):
+def main(argv: list[str] = sys.argv[1:]) -> Literal[0, 1]:
     uncrustify_bin = find_executable('uncrustify')
     if not uncrustify_bin:
         print("Could not find 'uncrustify' executable", file=sys.stderr)
@@ -48,7 +49,8 @@ def main(argv=sys.argv[1:]):
         return 1
 
     # Version 0.78.1 is different enough that we have a specific
-    # configuration file for it.  Anything before that uses the 0.72 one.
+    # configuration file for it.  Anything newer than or equal to that
+    # uses the 0.78 one.  Anything before that uses the 0.72 one.
     # The strings that uncrustify can print vary depending on how it was
     # built; common variations are "Uncrustify_d-0.78.1"
     # and "Uncrustify-0.72.0_f".
@@ -58,7 +60,9 @@ def main(argv=sys.argv[1:]):
         return 1
 
     version = version_match.group(1)
-    if version == b'0.78.1':
+    # Note: we use byte comparison here.  This works as long as the
+    # major and minor versions are the same number of digits.
+    if version >= b'0.78.1':
         default_config_file = 'ament_code_style_0_78.cfg'
     else:
         default_config_file = 'ament_code_style_0_72.cfg'
